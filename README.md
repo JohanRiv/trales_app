@@ -1,6 +1,8 @@
 # trales_app
 
-A new Flutter project.
+A new Flutter project to shere experience on travels and adventure, this project use BLoC.
+
+This project is not finish, but is a nice challenge.
 
 ## Getting Started
 
