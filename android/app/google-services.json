@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "390543198364",
+    "project_id": "tralesapp",
+    "storage_bucket": "tralesapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:390543198364:android:7851458dfb67137e28c559",
+        "android_client_info": {
+          "package_name": "com.example.trales_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "390543198364-58jerbcvntcptfmvjb1cs3sh8llsjlrb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.trales_app",
+            "certificate_hash": "7bc9832b0b22b61f4f68a009ba377d7a506952c4"
+          }
+        },
+        {
+          "client_id": "390543198364-f0pap38bd22juag35aeafrebm94np594.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCw3zO-o_KGwqEFxj2CntVBJQaPLRVYj08"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "390543198364-f0pap38bd22juag35aeafrebm94np594.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
