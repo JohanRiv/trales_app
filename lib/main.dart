@@ -1,9 +1,12 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
-
-import 'package:trales_app/src/posts/controllers/bloc_post.dart';
+import 'package:trales_app/src/general_tools/views/widgets/navbar_widget.dart';
+import 'package:trales_app/src/user/controllers/bloc_user.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  FirebaseApp defaultApp = Firebase.app();
   runApp(MyApp());
 }
 
@@ -16,8 +19,10 @@ class MyApp extends StatelessWidget {
           theme: ThemeData(
             primarySwatch: Colors.blue,
           ),
-          home: null,
+          home: Scaffold(
+            body: NavBarWidget(),
+          ),
         ),
-        bloc: PostBloc());
+        bloc: UserBloc());
   }
 }
