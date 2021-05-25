@@ -4,9 +4,9 @@ import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:trales_app/src/general_tools/views/widgets/navbar_widget.dart';
 import 'package:trales_app/src/user/controllers/bloc_user.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  FirebaseApp defaultApp = Firebase.app();
+  await Firebase.initializeApp();
   runApp(MyApp());
 }
 
