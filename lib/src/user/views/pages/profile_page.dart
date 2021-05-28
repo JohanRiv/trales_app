@@ -1,12 +1,50 @@
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:trales_app/src/general_tools/views/widgets/background_widget.dart';
+import 'package:trales_app/src/user/controllers/bloc_user.dart';
+import 'package:trales_app/src/user/models/user.dart';
+import 'package:trales_app/src/user/views/pages/login_page.dart';
 import 'package:trales_app/src/user/views/widgets/button_bar_widget.dart';
-import 'package:trales_app/src/user/views/widgets/image_publication_widget.dart';
 import 'package:trales_app/src/user/views/widgets/profile_data_widget.dart';
 
 class ProfilePage extends StatelessWidget {
+  UserBloc userBloc;
+  User user;
+
   @override
   Widget build(BuildContext context) {
+    userBloc = BlocProvider.of(context);
+    return StreamBuilder(
+      stream: userBloc.streamFirebase,
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return CircularProgressIndicator();
+        } else if (snapshot.connectionState == ConnectionState.none) {
+          return CircularProgressIndicator();
+        } else if (snapshot.connectionState == ConnectionState.active) {
+          return userLoginVerification(snapshot, context);
+        } else if (snapshot.connectionState == ConnectionState.done) {
+          return userLoginVerification(snapshot, context);
+        } else {
+          return LoginPage();
+        }
+      },
+    );
+  }
+
+  Widget userLoginVerification(AsyncSnapshot snapshot, BuildContext context) {
+    if (!snapshot.hasData || snapshot.hasError) {
+      return LoginPage();
+    } else {
+      user = User(
+          userName: snapshot.data.displayName,
+          userEmail: snapshot.data.email,
+          userPhotoUrl: snapshot.data.photoURL);
+      return userProfileWidget(context);
+    }
+  }
+
+  Widget userProfileWidget(BuildContext context) {
     Text titleLabel = Text(
       "Profile",
       style: TextStyle(
@@ -48,8 +86,8 @@ class ProfilePage extends StatelessWidget {
               Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [titleLabel, settingsButton]),
-              ProfileDataWidget("Tyra Smith", "t.smith@bookhappy.com",
-                  "assets/images/trales_icon.png"),
+              ProfileDataWidget(
+                  user.userName, user.userEmail, user.userPhotoUrl),
               ButtonBarWidget()
             ],
           ),

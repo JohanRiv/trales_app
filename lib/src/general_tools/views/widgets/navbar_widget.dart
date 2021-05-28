@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:trales_app/src/home/views/pages/home_page.dart';
 import 'package:trales_app/src/posts/views/pages/post_page.dart';
 import 'package:trales_app/src/search/views/pages/search_page.dart';
+import 'package:trales_app/src/user/controllers/bloc_user.dart';
 import 'package:trales_app/src/user/views/pages/profile_page.dart';
 import 'package:trales_app/src/notification/views/pages/notification_page.dart';
 
@@ -88,8 +90,10 @@ class _NavBarWidgetState extends State<NavBarWidget> {
             break;
           case 4:
             return CupertinoTabView(
-              builder: (context) => ProfilePage(),
-            );
+                builder: (context) => BlocProvider(
+                      bloc: UserBloc(),
+                      child: ProfilePage(),
+                    ));
             break;
           default:
             return CupertinoTabView(

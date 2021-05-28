@@ -18,7 +18,7 @@ class ProfileDataWidget extends StatelessWidget {
           shape: BoxShape.circle,
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage(userProfilePhotoPath),
+            image: NetworkImage(userProfilePhotoPath),
           )),
     );
 
