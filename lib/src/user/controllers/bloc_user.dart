@@ -5,10 +5,17 @@ import 'package:trales_app/src/user/connectors/auth_connector.dart';
 class UserBloc implements Bloc {
   final _authConnector = AuthConnector();
 
+  Stream<User> streamFirebase = FirebaseAuth.instance.authStateChanges();
+  Stream<User> get authStatus => streamFirebase;
+
   @override
   void dispose() {}
 
   Future<User> login() {
     return _authConnector.loginFirebase();
+  }
+
+  signOut() {
+    _authConnector.singOut();
   }
 }

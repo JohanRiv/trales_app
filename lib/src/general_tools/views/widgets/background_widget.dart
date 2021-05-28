@@ -6,8 +6,13 @@ class BackgroundWidget extends StatelessWidget {
   bool backgroundColor = true;
   String imagePath = "";
 
-  BackgroundWidget(
-      this.height, this.width, this.backgroundColor, this.imagePath);
+  BackgroundWidget({
+    Key key,
+    @required this.height,
+    @required this.width,
+    @required this.backgroundColor,
+    @required this.imagePath,
+  });
 
   @override
   Widget build(BuildContext context) {

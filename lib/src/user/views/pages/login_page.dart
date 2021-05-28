@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
 import 'package:trales_app/src/general_tools/views/widgets/background_widget.dart';
 import 'package:trales_app/src/general_tools/views/widgets/big_button_widget.dart';
+import 'package:trales_app/src/general_tools/views/widgets/navbar_widget.dart';
 import 'package:trales_app/src/user/controllers/bloc_user.dart';
 
 class LoginPage extends StatefulWidget {
@@ -16,7 +17,20 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     userBloc = BlocProvider.of(context);
-    return loginGoogleUI();
+    return _handleCurrentSession();
+  }
+
+  Widget _handleCurrentSession() {
+    return StreamBuilder(
+      stream: userBloc.authStatus,
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (!snapshot.hasData || snapshot.hasError) {
+          return loginGoogleUI();
+        } else {
+          return NavBarWidget();
+        }
+      },
+    );
   }
 
   Widget loginGoogleUI() {
@@ -49,10 +63,10 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       body: Stack(alignment: Alignment.center, children: [
         BackgroundWidget(
-            MediaQuery.of(context).size.height,
-            MediaQuery.of(context).size.width,
-            false,
-            "assets/images/background.png"),
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            backgroundColor: false,
+            imagePath: "assets/images/background.png"),
         Column(
           children: [
             Container(

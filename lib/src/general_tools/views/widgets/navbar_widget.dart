@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:trales_app/src/home/views/pages/home_page.dart';
 import 'package:trales_app/src/posts/views/pages/post_page.dart';
 import 'package:trales_app/src/search/views/pages/search_page.dart';
-import 'package:trales_app/src/user/views/pages/login_page.dart';
 import 'package:trales_app/src/user/views/pages/profile_page.dart';
 import 'package:trales_app/src/notification/views/pages/notification_page.dart';
 
@@ -15,7 +14,7 @@ class NavBarWidget extends StatefulWidget {
 class _NavBarWidgetState extends State<NavBarWidget> {
   int tapIndex = 0;
   final List<Widget> tapView = [
-    LoginPage(),
+    HomePage(),
     SearchPage(),
     PostPage(),
     NotificationPage(),
@@ -69,7 +68,7 @@ class _NavBarWidgetState extends State<NavBarWidget> {
         switch (index) {
           case 0:
             return CupertinoTabView(
-              builder: (context) => LoginPage(),
+              builder: (context) => HomePage(),
             );
             break;
           case 1:

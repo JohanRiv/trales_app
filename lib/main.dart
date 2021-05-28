@@ -1,8 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:generic_bloc_provider/generic_bloc_provider.dart';
-import 'package:trales_app/src/general_tools/views/widgets/navbar_widget.dart';
 import 'package:trales_app/src/user/controllers/bloc_user.dart';
+import 'package:trales_app/src/user/views/pages/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
             primarySwatch: Colors.blue,
           ),
           home: Scaffold(
-            body: NavBarWidget(),
+            body: LoginPage(),
           ),
         ),
         bloc: UserBloc());
