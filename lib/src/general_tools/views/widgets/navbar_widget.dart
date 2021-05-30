@@ -35,6 +35,10 @@ class _NavBarWidgetState extends State<NavBarWidget> {
               color: Color(0xFF7986cb),
             ),
             label: "",
+            activeIcon: Icon(
+              Icons.home,
+              color: Color(0xFF9575cd),
+            ),
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -42,6 +46,10 @@ class _NavBarWidgetState extends State<NavBarWidget> {
               color: Color(0xFF7986cb),
             ),
             label: "",
+            activeIcon: Icon(
+              Icons.search,
+              color: Color(0xFF9575cd),
+            ),
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -49,6 +57,10 @@ class _NavBarWidgetState extends State<NavBarWidget> {
               color: Color(0xFF7986cb),
             ),
             label: "",
+            activeIcon: Icon(
+              Icons.add_location,
+              color: Color(0xFF9575cd),
+            ),
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -56,6 +68,10 @@ class _NavBarWidgetState extends State<NavBarWidget> {
               color: Color(0xFF7986cb),
             ),
             label: "",
+            activeIcon: Icon(
+              Icons.notifications,
+              color: Color(0xFF9575cd),
+            ),
           ),
           BottomNavigationBarItem(
             icon: Icon(
@@ -63,6 +79,10 @@ class _NavBarWidgetState extends State<NavBarWidget> {
               color: Color(0xFF7986cb),
             ),
             label: "",
+            activeIcon: Icon(
+              Icons.person,
+              color: Color(0xFF9575cd),
+            ),
           ),
         ],
       ),

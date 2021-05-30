@@ -9,7 +9,7 @@ import 'package:trales_app/src/user/views/widgets/profile_data_widget.dart';
 
 class ProfilePage extends StatelessWidget {
   UserBloc userBloc;
-  User user;
+  UserTrales user;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,8 @@ class ProfilePage extends StatelessWidget {
     if (!snapshot.hasData || snapshot.hasError) {
       return LoginPage();
     } else {
-      user = User(
+      user = UserTrales(
+          userID: snapshot.data.uid,
           userName: snapshot.data.displayName,
           userEmail: snapshot.data.email,
           userPhotoUrl: snapshot.data.photoURL);

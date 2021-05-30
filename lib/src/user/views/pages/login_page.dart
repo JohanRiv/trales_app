@@ -4,6 +4,7 @@ import 'package:trales_app/src/general_tools/views/widgets/background_widget.dar
 import 'package:trales_app/src/general_tools/views/widgets/big_button_widget.dart';
 import 'package:trales_app/src/general_tools/views/widgets/navbar_widget.dart';
 import 'package:trales_app/src/user/controllers/bloc_user.dart';
+import 'package:trales_app/src/user/models/user.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -102,9 +103,13 @@ class _LoginPageState extends State<LoginPage> {
                       buttonHeight: 50,
                       buttonWidth: MediaQuery.of(context).size.width * 0.7,
                       onPressed: () {
-                        userBloc
-                            .login()
-                            .then((value) => print('Datos: ${value.email}'));
+                        userBloc.login().then((value) => {
+                              userBloc.addUser(UserTrales(
+                                  userID: value.uid,
+                                  userName: value.displayName,
+                                  userEmail: value.email,
+                                  userPhotoUrl: value.photoURL))
+                            });
                       })
                 ],
               ),
